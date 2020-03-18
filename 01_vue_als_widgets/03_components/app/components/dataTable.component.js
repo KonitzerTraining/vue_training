@@ -1,18 +1,35 @@
 Vue.component('data-table', {
     props: {
-        headline: String,
+       /* headline: {
+            type: String,
+            default: '[String missing]',
+            required: true
+        },*/
+        data: {
+            type: Array,
+            required: true
+        }
     },
     template: '<div>' +
-        '<h2>{{headline}}</h2>' +
+        '<slot name="headline"></slot>' +
         '<table class="table">' +
-        '<tr v-for="(customer, index) in customers" :key="index">' +
-        '<td v-for="prop in customer">{{prop}}</td>' +
+        '<slot name="caption"></slot>' +
+        '<tr v-for="(item, index) in data" :key="index">' +
+        '<td v-for="prop in item">{{prop}}</td>' +
+        '<td>' +
+        '<button class="btn btn-primary" @click="select(item.id)">' +
+        'Select</button></td>' +
         '</tr>' +
         '</table>'+
         '</div>',
     data: function () {
         return {
             title: 'Customer List'
+        }
+    },
+    methods: {
+        select: function (id) {
+            this.$emit('onSelectCustomer', id)
         }
     }
 });

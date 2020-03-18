@@ -3,7 +3,11 @@ Vue.component('customer-dashboard', {
 
     template: '<div>' +
         '<h1>{{title}}</h1>' +
-        '<data-table :headline="tableHeadline"></data-table>' +
+        '<data-table :data="customers" @onSelectCustomer="addToSelectedCustomers">' +
+
+        '<h2 slot="headline">Customers</h2>' +
+        '<caption slot="caption">actual list</caption>' +
+        '</data-table>' +
         '</div>',
     data: function () {
         return {
@@ -20,12 +24,18 @@ Vue.component('customer-dashboard', {
                     id: 2,
                     name: 'Hans II.'
                 }
-            ]
+            ],
+            selectedCustomers: []
         }
     },
     computed: { // Cached
         info: function () {
             return this.version + ' ' + this.date;
+        }
+    },
+    methods: {
+        addToSelectedCustomers: function (id) {
+            console.log(id);
         }
     },
     watch: {
