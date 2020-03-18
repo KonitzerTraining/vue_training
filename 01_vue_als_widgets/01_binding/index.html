@@ -25,7 +25,27 @@
     <p v-else>Default. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     <h3>v-show ändert nur die Darstellung</h3>
     <p v-show="status === 234">Lorem ipsum dolor sit. Nicht sicher, aber performanter</p>
+    <h3>v-model 2-way data binding</h3>
+    <input type="text" v-model.number="status"><br>
+    <input type="text" v-model.trim="email">
 
+    <h2>Binding</h2>
+    <p class="alert alert-warning">Lorem ipsum dolor sit amet.</p>
+    <p v-bind:class="{
+        alert: true,
+        'alert-info': flag,
+        'alert-danger': !flag
+    }">Lorem ipsum dolor sit amet.</p>
+    <p>Link zu <a :href="url">Google:</a></p>
+
+    <h2>List Rendering</h2>
+    <ul>
+        <li v-for="(customer, index) in customers" :key="customer.id">
+            {{index + 1}}. {{customer.name}}
+        </li>
+    </ul>
+    <p v-for="value in address"> {{value}}</p>
+    <p v-for="(value, index) in address">{{index}}: {{value}}</p>
 </div>
 
 

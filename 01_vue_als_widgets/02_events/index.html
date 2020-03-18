@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div class="container" id="crm">
+    <h1 class="display-4">Little CRM</h1>
+    <h2>Keyboard-Events</h2>
+    <p>
+        tab up ctrl delete down alt esc left shift
+        space right meta <br>
+        <textarea name="note" @keyup.shift.a="increment" @keydown.prevent.ctrl.s="increment" id="" cols="30" rows="10"></textarea>
+    </p>
+    <h2>Mouse-Events</h2>
+    <p>{{counter}}</p>
+    <button v-on:click="counter++" class="btn btn-primary">Button 1</button><br>
+    <button @click="increment" class="btn btn-secondary my-3">Button 2</button><br>
+    <button @click="increment(3)" class="btn btn-secondary">Button 3</button>
+
+    <p style="margin-top: 10em">Link zu einer <a href="#" @click.prevent="increment">Seite</a></p>
+
+    <p>{{flag}}</p>
+    <div @click="flag = false">
+        Div
+        <button class="btn btn-primary" @click.stop="increment">Button mit stopPropagation</button>
+        <button class="btn btn-primary" @click="increment">Button mit Propagation</button>
+    </div>
+
+</div>
+
+
+<script src="app/main.js"></script>
+
+</body>
+</html>
