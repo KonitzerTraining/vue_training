@@ -11,7 +11,21 @@
 
 <div class="container" id="crm">
     <h1 class="display-4">Little CRM</h1>
+    <h2>Vue Expressions</h2>
+
+    <small>{{version}}</small>
     <p>Lorem ipsum dolor sit amet.</p>
+    <p>{{customers}}</p>
+    <p>{{customers[0].name.toUpperCase()}}</p>
+
+    <h2>Directives</h2>
+    <h3>v-if ändert den DOM-Baum</h3>
+    <p v-if="status === 1">Eins. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p v-else-if="status === 2">Zwei. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p v-else>Default. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <h3>v-show ändert nur die Darstellung</h3>
+    <p v-show="status === 234">Lorem ipsum dolor sit. Nicht sicher, aber performanter</p>
+
 </div>
 
 
