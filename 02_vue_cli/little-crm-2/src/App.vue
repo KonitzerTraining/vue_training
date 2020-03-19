@@ -2,19 +2,11 @@
   <v-app id="app">
 
   <v-app-bar app color="primary" dark>
-    <v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
+    <v-toolbar-title>Little CRM</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn text>Home</v-btn>
-    <v-btn>Login</v-btn>
-    <v-btn>Imprint</v-btn>
+    <v-btn text rounded v-for="link in links" :to="link.url"  :key="link.label">{{link.label}}</v-btn>
   </v-app-bar>
   <v-content class="mb-4">
-    <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/imprint">Imprint</router-link>
-    </div>
-    <h2>Hi!</h2>
     <router-view/>
   </v-content>
   <v-footer absolute class="font-weight-medium" color="primary" dark>
@@ -24,3 +16,30 @@
   </v-footer>
   </v-app>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  data () {
+    return {
+      links: [
+        {
+          label: 'Home',
+          url: '/'
+        },
+        {
+          label: 'Customers',
+          url: '/customers'
+        },
+        {
+          label: 'About',
+          url: '/about'
+        }, {
+          label: 'Imprint',
+          url: '/imprint'
+        }
+      ]
+    }
+  }
+}
+</script>
