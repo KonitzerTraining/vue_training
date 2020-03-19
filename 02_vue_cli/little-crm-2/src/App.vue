@@ -1,5 +1,14 @@
 <template>
   <v-app id="app">
+
+      <v-app-bar color="primary" dark>
+        <v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn>Home</v-btn>
+        <v-btn>Login</v-btn>
+        <v-btn>Imprint</v-btn>
+      </v-app-bar>
+
    <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -7,28 +16,18 @@
     </div>
     <h2>Hi!</h2>
     <router-view/>
+    <v-footer
+      absolute
+      class="font-weight-medium"
+      color="primary"
+      dark
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        <strong>Little CRM</strong>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
