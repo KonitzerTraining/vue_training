@@ -11,6 +11,12 @@ const routes = [
     component: Home
   },
   {
+    path: '/imprint',
+    name: 'Imprint',
+    // Lazy Loading
+    component: () => import('../views/Imprint.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
