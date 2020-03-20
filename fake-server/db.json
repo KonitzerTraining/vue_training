@@ -9,6 +9,11 @@
       "id": 3,
       "name": "Hans-Peter",
       "purchases": 100
+    },
+    {
+      "name": "sdaf",
+      "purchases": 345345,
+      "id": 4
     }
   ]
 }

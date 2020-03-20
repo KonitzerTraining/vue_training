@@ -35,7 +35,7 @@ export default new Vuex.Store({
         })
     },
     createCustomer ({ commit }, customer: ICustomer) {
-      customerService.postCustomer(customer)
+      return customerService.postCustomer(customer)
         .then((newCustomer) => {
           commit('ADD_CUSTOMER', newCustomer)
         })
