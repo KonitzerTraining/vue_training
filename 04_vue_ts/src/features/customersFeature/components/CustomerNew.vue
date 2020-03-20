@@ -31,7 +31,9 @@ export default {
       }
       this.$store.dispatch('createCustomer', customer)
         .then(() => {
-          console.log('ok')
+          this.$router.push({
+            path: '/customers'
+          })
         })
     }
   }
