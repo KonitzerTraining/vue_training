@@ -39,7 +39,12 @@ export default class App extends Vue {
           label: 'Imprint',
           url: '/imprint'
         }
-      ]
+      ];
+
+      // life-cycle hook
+      created () {
+        this.$store.dispatch('fetchCustomers')
+      }
 }
 
 </script>

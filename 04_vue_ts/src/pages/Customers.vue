@@ -1,10 +1,18 @@
 <template>
-<h2>Customers</h2>
+  <div>
+    <h2>Customer Dashboard</h2>
+    <CustomersList></CustomersList>
+  </div>
 </template>
 
 <script>
+
+import CustomersList from '@/features/customersFeature/components/CustomersList'
 export default {
-  name: 'Customers'
+  name: 'Customers',
+  components: {
+    CustomersList
+  }
 }
 </script>
 
