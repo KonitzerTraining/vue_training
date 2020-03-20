@@ -12,33 +12,25 @@
 
 <script>
 
+import Vue from 'vue'
+import Component from 'vue-class-component'
 // import customerService from '@/services/customerService'
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
-export default {
-  name: 'CustomersList',
-  data () {
-    return {
-      headers: [
-        { text: 'Id', value: 'id' },
-        { text: 'Name', value: 'name' },
-        { text: 'Purchases', value: 'purchases' }
-      ]
-      //    customers: []
-    }
-  },
+@Component({
   computed: {
-    ...mapState(['customers']),
-    ...mapGetters(['findByName'])
+    ...mapState(['customers'])
   }
-  /* created () {
-    customerService.getCustomers().then((customers) => {
-      this.customers = customers
-    })
-  } */
+})
+export default class CustomersList extends Vue {
+  headers = [
+    { text: 'Id', value: 'id' },
+    { text: 'Name', value: 'name' },
+    { text: 'Purchases', value: 'purchases' }
+  ]
 }
+
 </script>
 
 <style scoped>
-
 </style>
