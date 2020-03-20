@@ -16,6 +16,9 @@ export default new Vuex.Store({
     },
     DELETE_CUSTOMER (state, id) {
       state.customers = state.customers.filter((customer) => customer.id !== id)
+    },
+    ADD_CUSTOMER (state, customer: ICustomer) {
+      state.customers.push(customer)
     }
   },
   actions: {
@@ -29,6 +32,12 @@ export default new Vuex.Store({
       customerService.deleteOneCustomer(id)
         .then((response) => {
           commit('DELETE_CUSTOMER', id)
+        })
+    },
+    createCustomer ({ commit }, customer: ICustomer) {
+      customerService.postCustomer(customer)
+        .then((newCustomer) => {
+          commit('ADD_CUSTOMER', newCustomer)
         })
     }
   },
