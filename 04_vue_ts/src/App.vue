@@ -33,6 +33,10 @@ export default class App extends Vue {
           url: '/customers'
         },
         {
+          label: 'New',
+          url: '/customers/new'
+        },
+        {
           label: 'About',
           url: '/about'
         }, {

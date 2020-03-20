@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/Home.vue'
 import Customers from '@/pages/Customers.vue'
+import CustomersNew from '@/pages/CustomersNew.vue'
 import Default from '@/pages/Default.vue'
 import About from '@/pages/About.vue'
 
@@ -17,6 +18,11 @@ const routes = [
     path: '/customers',
     name: 'Customers',
     component: Customers
+  },
+  {
+    path: '/customers/new',
+    name: 'CustomersNew',
+    component: CustomersNew
   },
   {
     path: '/about',
