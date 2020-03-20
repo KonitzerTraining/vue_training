@@ -48,6 +48,7 @@ export default class CustomersList extends Vue {
 
   deleteItem (id: number): void {
     console.log(id)
+    this.$store.dispatch('deleteOneCustomer', id)
   }
 }
 

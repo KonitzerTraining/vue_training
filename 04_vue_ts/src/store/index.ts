@@ -21,6 +21,12 @@ export default new Vuex.Store({
         .then((customers) => {
           commit('SET_CUSTOMERS', customers)
         })
+    },
+    deleteOneCustomer ({ commit }, id: number) {
+      customerService.deleteOneCustomer(id)
+        .then((response) => {
+          console.log(response)
+        })
     }
   },
   getters: {},

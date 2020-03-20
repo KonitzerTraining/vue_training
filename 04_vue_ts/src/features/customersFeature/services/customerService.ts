@@ -7,5 +7,14 @@ export default {
       }).catch(() => {
         console.warn('Server down ???')
       })
+  },
+
+  deleteOneCustomer (id: number) {
+    return client.delete('/customers/' + id)
+      .then((response) => {
+        return response
+      }).catch(() => {
+        console.warn('Server down ???')
+      })
   }
 }
