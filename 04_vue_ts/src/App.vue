@@ -1,61 +1,49 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <v-app id="app">
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+    <v-app-bar app color="primary" dark>
+      <v-toolbar-title>Little CRM</v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-btn text rounded v-for="link in links" :to="link.url"  :key="link.label">{{link.label}}</v-btn>
     </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
+    <v-content class="mb-4">
+      <router-view/>
     </v-content>
+    <v-footer absolute class="font-weight-medium" color="primary" dark>
+      <v-col class="text-center" cols="12">
+        <strong>Little CRM</strong>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
 
 export default Vue.extend({
   name: 'App',
+  components: {},
 
-  components: {
-    HelloWorld
-  },
-
-  data: () => ({
-    //
-  })
+  data () {
+    return {
+      links: [
+        {
+          label: 'Home',
+          url: '/'
+        },
+        {
+          label: 'Customers',
+          url: '/customers'
+        },
+        {
+          label: 'About',
+          url: '/about'
+        }, {
+          label: 'Imprint',
+          url: '/imprint'
+        }
+      ]
+    }
+  }
 })
 </script>
