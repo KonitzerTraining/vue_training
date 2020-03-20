@@ -1,11 +1,6 @@
 {
   "customers": [
     {
-      "id": 1,
-      "name": "Hans",
-      "purchases": 0
-    },
-    {
       "id": 2,
       "name": "Peter",
       "purchases": 5

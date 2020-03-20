@@ -13,6 +13,9 @@ export default new Vuex.Store({
   mutations: {
     SET_CUSTOMERS (state, customers: ICustomer[]) {
       state.customers = customers
+    },
+    DELETE_CUSTOMER (state, id) {
+      state.customers = state.customers.filter((customer) => customer.id !== id)
     }
   },
   actions: {
@@ -25,7 +28,7 @@ export default new Vuex.Store({
     deleteOneCustomer ({ commit }, id: number) {
       customerService.deleteOneCustomer(id)
         .then((response) => {
-          console.log(response)
+          commit('DELETE_CUSTOMER', id)
         })
     }
   },
