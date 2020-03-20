@@ -19,14 +19,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Component from 'vue-class-component'
 
-export default Vue.extend({
-  name: 'App',
-  components: {},
-
-  data () {
-    return {
-      links: [
+@Component
+export default class App extends Vue {
+      links = [
         {
           label: 'Home',
           url: '/'
@@ -43,7 +40,6 @@ export default Vue.extend({
           url: '/imprint'
         }
       ]
-    }
-  }
-})
+}
+
 </script>
