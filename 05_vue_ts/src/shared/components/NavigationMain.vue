@@ -14,11 +14,12 @@
 import Vue from 'vue/'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
+import ILink from '@/shared/model/ILink'
 
 @Component({})
 export default class NavigationMain extends Vue {
   name = 'NavigationMain'
-  @Prop(Array) links: any
+  @Prop({ default: [] }) links!: ILink[]
 }
 
 </script>

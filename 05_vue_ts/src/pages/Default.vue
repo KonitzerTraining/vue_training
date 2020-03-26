@@ -1,15 +1,3 @@
 <template>
-<h1>
-  404 - Page not found
-</h1>
+  <h1>404 - Page not found</h1>
 </template>
-
-<script>
-export default {
-  name: 'Default'
-}
-</script>
-
-<style scoped>
-
-</style>

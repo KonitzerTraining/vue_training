@@ -16,12 +16,13 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import NavigationMain from '@/shared/components/NavigationMain.vue'
+import ILink from '@/shared/model/ILink'
 
 @Component({
   components: { NavigationMain }
 })
 export default class App extends Vue {
-      links = [
+      links: ILink[] = [
         {
           label: 'Home',
           url: '/'
