@@ -39,25 +39,29 @@
 
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import store from '@/store/index'
+// import store from '@/store/index'
 
 import { mapState, mapActions } from 'vuex'
+import { Prop } from 'vue-property-decorator'
+import ILink from '@/shared/model/ILink'
+import ICustomer from '@/features/customersFeature/model/ICustomer'
 
-@Component({
+@Component({/*
   computed: {
-    ...mapState(['customers'])
+    // ...mapState(['customers'])
   },
   methods: {
     ...mapActions(['fetchCustomers'])
-  },
-  beforeRouteEnter (to, from, next) {
+  } */
+/*  beforeRouteEnter (to, from, next) {
     store.dispatch('fetchCustomers')
       .then(() => {
         next()
       })
-  }
+  } */
 })
 export default class CustomersList extends Vue {
+  @Prop({ default: [] }) customers!: ICustomer[]
   name = 'CustomersList'
   headers = [
     { text: 'Id', value: 'id' },

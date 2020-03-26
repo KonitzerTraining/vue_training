@@ -3,6 +3,7 @@ import CustomersList from '@/features/customersFeature/components/CustomersList.
 import CustomerNew from '@/features/customersFeature/components/CustomerNew.vue'
 import CustomerView from '@/features/customersFeature/components/CustomerView.vue'
 import { Route } from 'vue-router'
+import store from '@/store/index'
 
 const routes = [
   {
@@ -14,10 +15,13 @@ const routes = [
       {
         path: '',
         component: CustomersList,
-        beforeEnter: (to, from, next) => {
-          console.log('nach:', to)
-          console.log('von', from)
-          next()
+        props: true,
+        beforeEnter: (to: Route, from: Route, next: any) => {
+          store.dispatch('fetchCustomers')
+            .then(() => {
+              to.params.customers = store.state.customers
+              next()
+            })
         }
       },
       {

@@ -1,4 +1,4 @@
-import './router/register-hooks'
+// import './router/register-hooks'
 
 import Vue from 'vue'
 import App from './App.vue'
