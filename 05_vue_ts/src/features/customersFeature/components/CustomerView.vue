@@ -1,8 +1,11 @@
 <template>
+  <div>
     <h1>
-      Details of Customer #{{this.$route.params.id}}
-      {{customer}}
+<!--      Details of Customer #{{this.$route.params.id}}-->
+      Details of Customer no. {{id}}
     </h1>
+    <p>{{customer}}</p>
+  </div>
 </template>
 
 <script>
@@ -12,7 +15,8 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component({})
 export default class CustomerNew extends Vue {
-  @Prop(Object) customer
+  @Prop() customer
+  @Prop() id
 }
 
 </script>

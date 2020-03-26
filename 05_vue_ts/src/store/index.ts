@@ -30,7 +30,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    fetchCustomers ({ commit, dispatch }) {
+    fetchCustomers ({ commit /* , dispatch */ }) {
       commit('SET_LOADING', true)
 
       return customerService.getCustomers()
@@ -48,11 +48,9 @@ export default new Vuex.Store({
       customerService.deleteOneCustomer(id)
         .then(() => {
           commit('DELETE_CUSTOMER', id)
-          dispatch('deleteOneCustomerDone')
+          commit('SET_LOADING', false)
+          // dispatch('deleteOneCustomerDone')
         })
-    },
-    deleteOneCustomerDone ({ commit }) {
-      commit('SET_LOADING', false)
     },
     createCustomer ({ commit }, customer: ICustomer) {
       return customerService.postCustomer(customer)
@@ -61,5 +59,10 @@ export default new Vuex.Store({
         })
     }
   },
-  getters: {}
+  getters: {
+    byId: (state) => (id: number) => {
+      console.log(typeof id)
+      return state.customers.filter((customer) => customer.id === id)[0]
+    }
+  }
 })
