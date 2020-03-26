@@ -25,6 +25,7 @@ const routes = [
         props: true,
         beforeEnter: (to: Route, from: Route, next: any) => {
           // ...
+
           to.params.customer = { id: 3, name: 'Hans' }
           next()
         }

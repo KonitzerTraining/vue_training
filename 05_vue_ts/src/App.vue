@@ -1,15 +1,6 @@
 <template>
   <v-app id="app">
-
-    <v-app-bar app color="primary" dark>
-      <v-toolbar-title>Little CRM</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn text rounded v-for="link in links" :to="link.url"  :key="link.label">{{link.label}}</v-btn>
-      <v-progress-circular
-        :indeterminate="$store.state.loading"
-        color="white"
-      ></v-progress-circular>
-    </v-app-bar>
+    <NavigationMain :links="links"></NavigationMain>
     <v-content class="mb-4">
       <router-view/>
     </v-content>
@@ -24,8 +15,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import NavigationMain from '@/shared/components/NavigationMain.vue'
 
-@Component
+@Component({
+  components: { NavigationMain }
+})
 export default class App extends Vue {
       links = [
         {
