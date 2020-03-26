@@ -39,16 +39,9 @@
 
 import Vue from 'vue'
 import Component from 'vue-class-component'
-// import customerService from '@/services/customerService'
-import { mapState, mapActions } from 'vuex'
-// import { Route } from 'vue-router'
-// import store from '@/store/index'
+import store from '@/store/index'
 
-/* Component.registerHooks([
-  'beforeRouteEnter',
-  'beforeRouteLeave',
-  'beforeRouteUpdate'
-]) */
+import { mapState, mapActions } from 'vuex'
 
 @Component({
   computed: {
@@ -58,9 +51,10 @@ import { mapState, mapActions } from 'vuex'
     ...mapActions(['fetchCustomers'])
   },
   beforeRouteEnter (to, from, next) {
-    // no!
-    console.log('test list')
-    next()
+    store.dispatch('fetchCustomers')
+      .then(() => {
+        next()
+      })
   }
 })
 export default class CustomersList extends Vue {
@@ -81,9 +75,9 @@ export default class CustomersList extends Vue {
     this.$router.push({ path: `/customers/view/${id}` })
   }
 
-  created () {
+/*  created () {
     this.$store.dispatch('fetchCustomers')
-  }
+  } */
 }
 
 </script>

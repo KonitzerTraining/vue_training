@@ -9,10 +9,16 @@ const routes = [
     path: '/customers',
     // name: 'Customers',
     component: Customers,
+
     children: [
       {
         path: '',
-        component: CustomersList
+        component: CustomersList,
+        beforeEnter: (to, from, next) => {
+          console.log('nach:', to)
+          console.log('von', from)
+          next()
+        }
       },
       {
         path: 'new',

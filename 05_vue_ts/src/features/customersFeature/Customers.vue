@@ -19,7 +19,7 @@ import Vue from 'vue'
   } */
 })
 export default class Customers extends Vue {
-  name = 'CustomersList'
+  name = 'Customers'
 }
 </script>
 

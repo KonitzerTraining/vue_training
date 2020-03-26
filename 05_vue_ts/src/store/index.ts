@@ -32,11 +32,12 @@ export default new Vuex.Store({
   actions: {
     fetchCustomers ({ commit, dispatch }) {
       commit('SET_LOADING', true)
-      customerService.getCustomers()
+
+      return customerService.getCustomers()
         .then((customers) => {
           commit('SET_CUSTOMERS', customers)
-
-          dispatch('fetchCustomersDone')
+          commit('SET_LOADING', false)
+          // dispatch('fetchCustomersDone')
         })
     },
     fetchCustomersDone ({ commit }) {
