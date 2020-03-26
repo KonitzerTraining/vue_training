@@ -2,15 +2,16 @@
   <div>
   <h1>Lifecycle Hooks</h1>
     <button @click="value = 123">Click</button>
+    <button @click="changeValue('9999')">Method</button>
     <p>{{value}}</p>
   </div>
 </template>
 <script lang="ts">
 
 import Component, { mixins } from 'vue-class-component'
-import Vue from 'vue'
+// import Vue from 'vue'
 import { Watch } from 'vue-property-decorator'
-import crudMixin from '@/shared/mixins/crud-operations'
+import CrudOperations from '@/shared/mixins/crud-operations'
 
 @Component({
   beforeRouteEnter (to, from, next) {
@@ -26,7 +27,7 @@ import crudMixin from '@/shared/mixins/crud-operations'
     next()
   }
 })
-export default class About extends mixins(crudMixin) {
+export default class About extends mixins(CrudOperations) {
     name = 'About'
     value = 987
 
